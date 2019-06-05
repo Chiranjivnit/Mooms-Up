@@ -1,0 +1,18 @@
+/* .Tool-logo {
+    animation: Tool-logo-spin infinite 10s linear;
+    height: 10vmin;
+    pointer-events: none;
+  } */
+
+  @keyframes Tool-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .tool{
+   
+  }
