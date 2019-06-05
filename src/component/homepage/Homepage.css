@@ -163,6 +163,7 @@ box-shadow: 0 8px 16px  0 rgba(0,0,0,0.2);
    opacity: 0.8;
    margin-top: 8px;
    /* margin-bottom: 0px; */
+
 }
 
 .feedletter{
@@ -221,4 +222,10 @@ box-shadow: 0 8px 16px  0 rgba(0,0,0,0.2);
    margin-left: 150px;
    transform: translate(-50,-250);
    color: black;
+}
+
+.renderfeed{
+   flex-direction: row;
+   padding: 10px;
+   
 }

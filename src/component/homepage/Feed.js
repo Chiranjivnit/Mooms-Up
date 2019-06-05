@@ -25,19 +25,28 @@ class Signup extends Component {
         super(props)
     }
     render() {
-
+     
         return (
             <div className="feed">
 
 
                 <img src={babybottle} className="babybottle" alt="babybottle"></img>
                 <h1 className="feedletter">Feed  </h1>
-                <h3 className="paragraph">Last feed</h3> <h3>>hr ago</h3>
-                <h3 className="paragraph">Left Breast</h3> <h3>1 min</h3>
-                <h3 className="paragraph">Right Breast</h3> <h3>1min</h3>
+            <RenderFeed name="Last feed" hour="12 hr ago"/>
+            <RenderFeed name="Left Breast" hour="1 min"/>
+            <RenderFeed name="Right Breast" hour="1 min"/>
                 <button className="feedbutton">+ add record</button>
             </div>
         )
     }
 }
 export default Signup;
+
+const RenderFeed=(props)=>{
+    const { name , hour } = props
+ return(
+     <div className="renderfeed">
+        <h3 className="paragraph">{name}</h3> <h3>>{hour}</h3>
+     </div>
+ )
+}

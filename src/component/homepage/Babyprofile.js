@@ -30,7 +30,7 @@ function Babyprofile() {
     return (
 
         <div className="babyprofilecard">
-        
+
             <div className="babyprofile">
                 <h1 className="vanness">Vanness</h1>
                 <Grid className="babyavatar">

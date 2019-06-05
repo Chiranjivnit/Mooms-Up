@@ -4,6 +4,7 @@ import Feed from './Feed';
 import Sleep from './Sleep';
 import Sidebar from './Sidebar';
 import Grid from '@material-ui/core/Grid';
+import Babyprofilecard from './Babyprofilecard';
 
 class App extends Component {
 
@@ -24,6 +25,7 @@ class App extends Component {
                 <Feed />
                 <Sleep />
                 <Sidebar />
+                <Babyprofilecard/>
                
             </div>
 
