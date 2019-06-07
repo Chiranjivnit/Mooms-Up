@@ -1,96 +1,82 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-import ButtonBase from '@material-ui/core/ButtonBase';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
+import { green } from "@material-ui/core/colors";
 
-const useStyles = theme => ({
-    root: {
-        flexGrow: 2,
-        marginTop: 20
+const styles =theme=> ({
+  card: {
+    display:"flex",
+    flexDirection:'row',
+    marginTop:0,
+    minWidth: 675,
+    width:600,
+    marginLeft:20,
+    height:600,
+    [theme.breakpoints.up('xl')]:{
+      backgroundColor:green[500],
     },
-    paper: {
-        padding: theme.spacing(2),
-        margin: 'auto',
-        maxWidth: 500,
-        
-
-    },
-    image: {
-        width: 128,
-        height: 128,
-    },
-    img: {
-        margin: 'auto',
-        display: 'block',
-        maxWidth: '100%',
-        maxHeight: '100%',
-    },
+  },
+  bullet: {
+    display: "flex",
+    flexDirection:'row',
+    // margin: "0 0",
+    // transform: "scale(0.8)"
+  },
+  title: {
+    fontSize: 14
+  },
+  pos: {
+    marginBottom: 12
+  }
 });
 
+class SimpleCard extends Component {
 
-class Babyprofilecard extends Component {
+  render(){
 
-    constructor(props) {
-        super(props)
-        this.state = {
-            expanded: false
-        }
-    }
-
-
-    handleExpandClick = () => {
-        this.setState({ expanded: !this.state.expanded })
-    }
-
-
-    render() {
-        const { classes, children } = this.props
-        const bull = <span className={classes.bullet}>.</span>
-        return (
-            <div className={classes.root} pt={10}>
-                <Paper className={classes.paper} pt={10}>
-                    <Grid container spacing={2} pt={10}>
-                        <Grid item pt={10}>
-                            <ButtonBase className={classes.image}>
-                                <img className={classes.img} alt="complex" src="/static/images/grid/complex.jpg" />
-                            </ButtonBase>
-                        </Grid>
-                        <Grid item xs={12} sm container>
-                            <Grid item xs container direction="column" spacing={2}>
-                                <Grid item xs>
-                                    <Typography gutterBottom variant="subtitle1">
-                                        Standard license
-                      </Typography>
-                                    <Typography variant="body2" gutterBottom>
-                                        Full resolution 1920x1080 • JPEG
-                      </Typography>
-                                    <Typography variant="body2" color="textSecondary">
-                                        ID: 1030114
-                      </Typography>
-                                </Grid>
-                                <Grid item>
-                                    <Typography variant="body2" style={{ cursor: 'pointer' }}>
-                                        Remove
-                      </Typography>
-                                </Grid>
-                            </Grid>
-                            <Grid item>
-                                <Typography variant="subtitle1">$19.00</Typography>
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                </Paper>
-            </div>
-        )
-    }
-
+  const { classes } = this.props;
+  const bull = <span className={classes.bullet}>•</span>;
+   
+  return (
+    <Card className={classes.card}>
+      <CardContent>
+        <Typography
+          className={classes.title}
+          color="textSecondary"
+          gutterBottom
+        >
+          Word of the Day
+        </Typography>
+        <Typography variant="h5" component="h2">
+          be
+          {bull}
+          nev
+          {bull}o{bull}
+          lent
+        </Typography>
+        <Typography className={classes.pos} color="textSecondary">
+          adjective
+        </Typography>
+        <Typography component="p">
+          well meaning and kindly. hgdagdagsafJAh;jh hzdsgigiusagiadaud hagdyuagtyagdidiudaihduhauhashashaushaiusaiussaiuaushau
+          <br />
+          {'"a benevolent smile"'}
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <Button size="small">Learn More</Button>
+      </CardActions>
+    </Card>
+  );
 }
-
-Babyprofilecard.propTypes = {
-    classes: PropTypes.object.isRequired,
+}
+SimpleCard.propTypes = {
+  classes: PropTypes.object.isRequired
 };
 
-export default withStyles(useStyles)(Babyprofilecard);
+export default withStyles(styles)(SimpleCard);
