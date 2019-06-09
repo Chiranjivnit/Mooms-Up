@@ -1,6 +1,7 @@
 import React from 'react';
-import server from '../IconsComponents/server.svg';
-import '../IconsComponents/Icons.css';
+// import server from '../IconsComponents/server.svg';
+import Images from '../../../Themes/Images'
+// import '../IconsComponents/Icons.css';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles({
@@ -21,7 +22,7 @@ function Resourses() {
         <div className="tool">
             <Grid container justify="center" alignItems='center' >
                 <header className="Tool-header">
-                    <img src={server} className={clases.bigAvatar} alt="logo" />
+                    <img src={Images.server} className={clases.bigAvatar} alt="logo" />
                 </header>
             </Grid>
         </div>

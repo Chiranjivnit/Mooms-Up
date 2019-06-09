@@ -1,11 +1,12 @@
-import React, { Component} from 'react';
+import React, { Component } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import Grid from '@material-ui/core/Grid';
-import babyavatar from '../homepage/image/babyavatar.jpg';
-import baby from '../homepage/image/baby.svg';
-import height from '../homepage/image/height.svg';
-import weight from '../homepage/image/weight.svg';
+import Images from '../../Themes/Images';
+// import babyavatar from '../homepage/image/babyavatar.jpg';
+// import baby from '../homepage/image/baby.svg';
+// import height from '../homepage/image/height.svg';
+// import weight from '../homepage/image/weight.svg';
 import { withStyles } from '@material-ui/styles';
 // import Typography from '@material-ui/core/Typography';
 //import green from '@material-ui/core/colors/green';
@@ -41,31 +42,31 @@ function Babyprofile() {
                             <h1 className="vanness">Vanness</h1>
                             <Grid className="babyavatar">
                                 <Avatar className={classes.bigAvatar}  >
-                                    <img src={babyavatar} className={classes.bigAvatar} alt="logo" />
+                                    <img src={Images.babyavatar} className={classes.bigAvatar} alt="logo" />
                                 </Avatar>
 
                             </Grid>
                             <label>
-                                <img src={baby} className="babyicon" alt="height"></img>
+                                <img src={Images.baby} className="babyicon" alt="height"></img>
                                 1 Year Old
                              </label> <br />
 
                             <label>
-                                <img src={height} className="babyicon" alt="height"></img>60cm
+                                <img src={Images.height} className="babyicon" alt="height"></img>60cm
                              </label><br />
 
                             <label>
-                                <img src={weight} className="babyicon" alt="height"></img> 8.6kg
+                                <img src={Images.weight} className="babyicon" alt="height"></img> 8.6kg
                              </label><br />
                             <button className="button">view details ></button>
-                           
+
                         </div>
                     </div>
                     <div className="babydiary">
-                    <h2 className="">Baby Diary</h2> <h3 className="seeall">see all ></h3>
+                        <h2 className="">Baby Diary</h2> <h3 className="seeall">see all ></h3>
                     </div>
                 </div>
-               
+
             </Grid>
         </Grid>
     );

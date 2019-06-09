@@ -18,10 +18,10 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
 import { fade } from '@material-ui/core/styles/colorManipulator';
-import Tools from '../IconsComponents/Tools';
-import Community from '../IconsComponents/Community';
-import Store from '../IconsComponents/Store';
-import Resourses from '../IconsComponents/Resourses';
+import Tools from '../Navbar/Tools';
+import Community from '../Navbar/Community';
+import Store from '../Navbar/Store';
+import Resourses from '../Navbar/Resourses';
 
 
 const drawerWidth = 240;

@@ -3,8 +3,8 @@ import Container from '@material-ui/core/Container';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { NavLink } from 'react-router-dom';
-import "./Login.css"
-import LoginIcon from './LoginIcon';
+ import "../Login/Login.css"
+import LoginIcon from '../Login/LoginIcon';
 
 class Signup extends Component {
 
@@ -64,7 +64,7 @@ class Signup extends Component {
                         type="submit"
                         variant="contained"
                         color="primary"
-                        style={{ width: "120px", height: "50px" }}
+                        style={{ width: "120px", height: "40px" }}
                         onClick={this.handleClick}
                     > Login </Button>
 

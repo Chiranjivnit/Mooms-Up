@@ -8,7 +8,7 @@
 
 .backgroundbody{
    font-family: sans-serif;
-   background: url('../homepage/image/whitebackground.jpg') ;
+   background: url('../../Assets/whitebackground.jpg') ;
    background-size: cover;
    background-position: center center;
    background-repeat: no-repeat;

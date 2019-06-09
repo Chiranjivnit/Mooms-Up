@@ -2,8 +2,7 @@ import React from 'react';
 //import '../IconsComponents/Icons.css';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
-import facebookicon from '../Logo/facebookicon.svg';
-import googleplus from '../Logo/googleplus.svg';
+import Images from '../../../Themes/Images'
 
 const useStyles = makeStyles({
   avatar: {
@@ -23,8 +22,8 @@ function Loginicon() {
     <div className="tool">
       <Grid container justify="center" alignItems='center' >
         <header className="Tool-header">
-          <img src={facebookicon} className={clases.bigAvatar} alt="logo" />
-          <img src={googleplus} className={clases.bigAvatar} alt="logo" />
+          <img src={Images.facebookicon} className={clases.bigAvatar} alt="logo" />
+          <img src={Images.googleplus} className={clases.bigAvatar} alt="logo" />
         </header>
       </Grid>
     </div>

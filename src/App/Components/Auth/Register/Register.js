@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import Container from '@material-ui/core/Container';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import './Login.css'
+import '../Login/Login.css'
 import { NavLink } from 'react-router-dom';
-import LoginIcon from './LoginIcon';
+import LoginIcon from '../Login/LoginIcon';
 import Checkbox from './Checkbox';
 
 

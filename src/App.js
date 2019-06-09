@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Signup from './component/Signup';
+import Signup from './App/Components/Auth/Login/Signup';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Register from './component/Register';
-import "./component/Login.css"
-import Homepage from './component/homepage/Homepage';
+import Register from './App/Components/Auth/Register/Register';
+import "./App/Components/Auth/Login/Login.css"
+import Homepage from './App/Components/Home/Homepage';
 
 class App extends Component {
 

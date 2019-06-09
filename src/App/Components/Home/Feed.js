@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import "../homepage/Homepage.css"
-import babybottle from '../homepage/image/babybottle.svg'
+import "../Home/Homepage.css";
+import Images from '../../Themes/Images'
+// import babybottle from '../homepage/image/babybottle.svg'
 
 class Signup extends Component {
     constructor(props) {
@@ -13,7 +14,7 @@ class Signup extends Component {
             <div className="feed">
 
                 <label>
-                    <img src={babybottle} className="babybottle" alt="babybottle"></img>
+                    <img src={Images.babybottle} className="babybottle" alt="babybottle"></img>
                     <h1 className="feedletter"> Feed  </h1>
   
                     <div className="feedparagraph">

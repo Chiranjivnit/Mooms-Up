@@ -1,8 +1,10 @@
 import React from 'react';
-import settings from '../IconsComponents/settings.svg';
-import '../IconsComponents/Icons.css';
+// import chatbubbles from '../IconsComponents/chatbubbles.svg';
+import Images from '../../../Themes/Images';
+import './Icons.css';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
+
 const useStyles = makeStyles({
     avatar: {
         margin: 10,
@@ -15,17 +17,18 @@ const useStyles = makeStyles({
     },
 });
 
-function Tools() {
+function Community() {
     const clases = useStyles();
     return (
         <div className="tool">
             <Grid container justify="center" alignItems='center' >
                 <header className="Tool-header">
-                    <img src={settings} className={clases.bigAvatar} alt="logo" />
+                    <img src={Images.chatbubbles} className={clases.bigAvatar} alt="logo" />
+                    
                 </header>
             </Grid>
         </div>
     );
 }
 
-export default Tools;
+export default Community;

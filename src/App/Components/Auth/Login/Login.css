@@ -1,7 +1,7 @@
 
 .body{
     font-family: sans-serif;
-    background: url('../component/assert/baby toys sleep.jpg') ;
+    background: url('../../../Assets/babytoyssleep.jpg') ;
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -16,11 +16,11 @@
 }
 
 .loginBox{
-   width: 480px;
-   height: 750px;
+   width: 400px;
+   height: 700px;
    background:whitesmoke;
    color:rgb(77, 67, 67);
-   top: 45%;
+   top: 50%;
    left: 24%;
    position: absolute;
    transform: translate(-50%,-50%);
@@ -31,7 +31,7 @@
 }
 
 .input {font-family: 'Times New Roman', Times, serif;
-  width: 380px;
+  width: 350px;
   height: 50px;
   margin: 0 50px 0 0;
   padding: 0px;

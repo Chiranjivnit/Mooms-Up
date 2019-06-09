@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import Babyprofile from './Babyprofile';
 import Feed from './Feed';
 import Sleep from './Sleep';
-import Sidebar from './Sidebar';
-import Slider from './Slider/Slider';
-import "../homepage/Slider/Slider.css"
+import Sidebar from '../Home/Navbar/Sidebar';
+// import Slider from '../../Components/Home/Navbar/';
 
 class App extends Component {
 
@@ -16,7 +15,7 @@ class App extends Component {
                 <div className="backgroundbody">
                     <div>
                         <Sidebar />
-                        <Slider/>
+                        {/* <Slider/> */}
                     </div>
 
                     <Babyprofile />
