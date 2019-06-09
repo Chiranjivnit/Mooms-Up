@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import Grid from '@material-ui/core/Grid';
@@ -8,7 +8,7 @@ import height from '../homepage/image/height.svg';
 import weight from '../homepage/image/weight.svg';
 import { withStyles } from '@material-ui/styles';
 // import Typography from '@material-ui/core/Typography';
-import green from '@material-ui/core/colors/green';
+//import green from '@material-ui/core/colors/green';
 import PropTypes from 'prop-types';
 
 const useStyles = makeStyles(theme => ({
