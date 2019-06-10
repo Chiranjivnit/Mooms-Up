@@ -34,12 +34,12 @@
    justify-content: space-between;
     flex-direction:column;
     align-items: flex-start;
-    width: 750px;
-    height: 400px;
+    width:620px;
+    height: 270px;
     background:white;
     color:rgb(34, 32, 36);
-    top: 24%;
-    left: 16%;
+    top: 28%;
+    left: 20%;
     position: absolute;
     transform: translate(-50%,-50%);
     box-sizing: border-box;
@@ -55,24 +55,24 @@
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
  }
  .vanness{
-   margin-left: 60px;
+   margin-left: 40px;
    margin-top: 20px;
    margin-bottom: 10px;
    color: black;
    float: none;
 }
  .babyicon{
-  margin-left: 50px;
-  width: 50px;
-  height: 50px; 
+  margin-left: 40px;
+  width: 30px;
+  height: 30px; 
   float:none;
  }
 
  .babyavatar{
-   width: 40px;
-   height: 40px;
-   top: 20%;
-   left: 20%;
+   width: 30px;
+   height: 30px;
+   top: 16%;
+   left: 10%;
    position: absolute;
    transform: translate(-0%,-150%);
    display: flex;
@@ -88,10 +88,10 @@
     flex-direction:column;
     margin: 0 auto;
     align-items: flex-start;
-    width: 350px;
-    height: 450px;
+    width: 300px;
+    height: 350px;
     background:white;
-    top: 55%;
+    top: 53%;
     left: 0.5%;
     position: absolute;
     box-sizing: border-box;
@@ -112,9 +112,9 @@ box-shadow: 0 8px 16px  0 rgba(0,0,0,0.2);
     align-items: flex-start;
     justify-content: flex-start;
     margin-left: 15px;
-    width: 60px;
-    height: 60px;
-    margin-top:30px;
+    width: 40px;
+    height: 40px;
+    margin-top:10px;
               
 }
 
@@ -138,12 +138,12 @@ box-shadow: 0 8px 16px  0 rgba(0,0,0,0.2);
    align-items: flex-start;
    margin: 0 auto;
    align-items:center;
-   width: 370px;
-   height: 450px;
+   width: 310px;
+   height: 350px;
    background:white;
    color:blueviolet;
-   top: 55%;
-   left: 16%;
+   top: 53%;
+   left: 20%;
    position: absolute;
    box-sizing: border-box;
    border-radius:20px;
@@ -178,12 +178,13 @@ box-shadow: 0 8px 16px  0 rgba(0,0,0,0.2);
    font-size: 16px;
    box-shadow: 0 8px 16 px 0  rgba(0,0,0,0.2);
    border-radius: 15px;
-   margin-left: 210px;
+   margin-left: 0px;
+   margin-right: 320px;
    text-align: center;
-   /* margin-top: 10px; */
+   margin-top: 210px;
    justify-self: center;
    justify-content: center;
-   margin-bottom: 10px;
+   margin-bottom: 20px;
    cursor: pointer;
    
  }
@@ -198,11 +199,11 @@ box-shadow: 0 8px 16px  0 rgba(0,0,0,0.2);
    flex-direction: row;
    justify-content:flex-start;
    margin-left: 20px;
-   margin-bottom: 150px;
+   margin-bottom:130px;
  }
 
  .seeall{
-  margin-left: 550px;
+  margin-left: 400px;
   color: blue;
   cursor: pointer;
  }
@@ -230,10 +231,10 @@ box-shadow: 0 8px 16px  0 rgba(0,0,0,0.2);
    align-items: center;
    text-align: center;
    margin-left: 15px;
-   margin-bottom: 30px;
-   padding:25px 100px;
+   margin-bottom: 5px;
+   padding:15px 50px;
    color:blue;
-   font-size: 20px;
+   font-size: 15px;
    box-shadow: 0 8px 16 px 0  rgba(0,0,0,0.2);
    border-radius: 15px;
    background-color: white;
@@ -249,8 +250,8 @@ box-shadow: 0 8px 16px  0 rgba(0,0,0,0.2);
    flex-direction: column;
    align-items: flex-start;
    justify-content: flex-start;
-   width: 50px;
-   height: 50px;
+   width: 40px;
+   height: 40px;
    margin-left: 20px;
    margin-top: 0px;
    left: 0.5%;
@@ -313,17 +314,17 @@ box-shadow: 0 8px 16px  0 rgba(0,0,0,0.2);
       width: 10%;   
    }
    .babyavatar{
-      width: 30%;
+      width: 10%;
    }
    .babydiary{
      margin-left: 9%;
-     margin-bottom: 15%;
+     margin-bottom: 20%;
    }
    .seeall{
-     margin-left: 30%;
+     margin-left: 60%;
    }
    .feed{
-      width: 40%;
+      width: 50%;
       float: none;
       left: 3%;
    }
@@ -337,8 +338,8 @@ box-shadow: 0 8px 16px  0 rgba(0,0,0,0.2);
    margin-bottom: 0%;
    }
    .sleep{
-      width: 53%;
-      left: 45%;
+      width: 55%;
+      left: 54%;
    }
    .babyavatar{
       width: 20%;
@@ -349,6 +350,130 @@ box-shadow: 0 8px 16px  0 rgba(0,0,0,0.2);
    }
 
    .button{
-    width: 30%;
+    width: 10%;
+    margin-right: 120px;
+    margin-left: 50px;
+
+   }
+}
+
+
+@media screen and (max-width:1020px){
+
+   .babyprofile{
+      width: 96%;
+      float:none;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      top:27%;
+   }
+   .vanness{
+      margin-left:10%;
+      margin-bottom: 300%s;
+   }
+   .babyicon{
+      width: 10%;   
+   }
+   .babyavatar{
+      width: 10%;
+   }
+   .babydiary{
+     margin-left: 9%;
+     margin-bottom: 20%;
+   }
+   .seeall{
+     margin-left: 60%;
+   }
+   .feed{
+      width: 50%;
+      float: none;
+      left: 3%;
+   }
+   .feedbutton{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+   margin-left: 0%;
+   margin-bottom: 0%;
+   }
+   .sleep{
+      width: 55%;
+      left: 54%;
+   }
+   .babyavatar{
+      width: 20%;
+      
+   }
+   .height{
+      width: 40%;
+   }
+
+   .button{
+    width: 10%;
+    margin-right: 120px;
+    margin-left: 50px;
+
+   }
+}
+
+@media screen and (max-width:600px){
+
+   .babyprofile{
+      width: 96%;
+      float:none;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      top:27%;
+   }
+   .vanness{
+      margin-left:10%;
+      margin-bottom: 300%s;
+   }
+   .babyicon{
+      width: 10%;   
+   }
+   .babyavatar{
+      width: 10%;
+   }
+   .babydiary{
+     margin-left: 9%;
+     margin-bottom: 70%;
+   }
+   .seeall{
+     margin-left: 180%;
+   }
+   .feed{
+      width: 50%;
+      float: none;
+      left: 3%;
+   }
+   .feedbutton{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+   margin-left: 0%;
+   margin-bottom: 0%;
+   }
+   .sleep{
+      width: 55%;
+      left: 54%;
+   }
+   .babyavatar{
+      width: 20%;
+      
+   }
+   .height{
+      width: 40%;
+   }
+
+   .button{
+    width: 10%;
+    margin-right: 120px;
+    margin-left: 50px;
+
    }
 }

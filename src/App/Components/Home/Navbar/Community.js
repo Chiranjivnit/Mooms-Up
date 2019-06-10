@@ -19,11 +19,15 @@ const useStyles = makeStyles({
 
 function Community() {
     const clases = useStyles();
+
+    const handleCommunity = ()=>{
+        window.alert("Sorry Community is Under maintenance Thank you.")
+    }
     return (
         <div className="tool">
             <Grid container justify="center" alignItems='center' >
                 <header className="Tool-header">
-                    <img src={Images.chatbubbles} className={clases.bigAvatar} alt="logo" />
+                    <img src={Images.chatbubbles} className={clases.bigAvatar} alt="logo" onClick={()=>handleCommunity()} />
                     
                 </header>
             </Grid>

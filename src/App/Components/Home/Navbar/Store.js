@@ -20,11 +20,14 @@ const useStyles = makeStyles({
 
 function Store() {
     const clases = useStyles();
+    const handleStore=()=>{
+        window.alert("Sorry Store is Under maintenance Thank you.")
+    }
     return (
         <div className="tool">
             <Grid container justify="center" alignItems='center' >
                 <header className="Tool-header">
-                    <img src={Images.frontstore} className={clases.bigAvatar} alt="logo" />
+                    <img src={Images.frontstore} className={clases.bigAvatar} alt="logo" onClick={()=>handleStore()}/>
                 </header>
             </Grid>
         </div>

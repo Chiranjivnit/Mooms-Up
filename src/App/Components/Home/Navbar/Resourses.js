@@ -17,12 +17,15 @@ const useStyles = makeStyles({
 });
 
 function Resourses() {
+    const handleResourse=()=>{
+        window.alert("Sorry Resourse is Under maintenance Thank you.")
+    }
     const clases = useStyles();
     return (
         <div className="tool">
             <Grid container justify="center" alignItems='center' >
                 <header className="Tool-header">
-                    <img src={Images.server} className={clases.bigAvatar} alt="logo" />
+                    <img src={Images.server} className={clases.bigAvatar} alt="logo" onClick={()=>handleResourse()} />
                 </header>
             </Grid>
         </div>

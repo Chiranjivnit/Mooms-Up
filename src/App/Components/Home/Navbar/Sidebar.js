@@ -134,6 +134,10 @@ function PersistentDrawerLeft() {
         setOpen(false);
     }
 
+    // handleBabytool=()=>{
+    //     window.alert("Sorry ")
+    // }
+
     return (
         <div className={classes.root}>
             <CssBaseline />
@@ -189,7 +193,7 @@ function PersistentDrawerLeft() {
                 <List>
                     {['Baby Tool'].map((text, index) => (
                         <ListItem button key={text}>
-                            <Tools>{index % 2 === 0 ? <InboxIcon /> : <Tools />} </Tools>
+                            <Tools >{index % 2 === 0 ? <InboxIcon /> : <Tools />} </Tools>
                             <ListItemText primary={text} />
                         </ListItem>
                     ))}

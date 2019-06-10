@@ -17,12 +17,15 @@ const useStyles = makeStyles({
 });
 
 function Tools() {
-    const clases = useStyles();
+    const classes = useStyles();
+    const ImageClick = () => {
+        window.alert("Sorry Baby Tool is Under maintenance Thank you.")
+    }
     return (
         <div className="tool">
             <Grid container justify="center" alignItems='center' >
                 <header className="Tool-header">
-                    <img src={Images.settings} className={clases.bigAvatar} alt="logo" />
+                    <img src={Images.settings} className={classes.bigAvatar} alt="logo" onClick={() => ImageClick()} />
                 </header>
             </Grid>
         </div>
