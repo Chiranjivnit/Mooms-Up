@@ -2,7 +2,7 @@ import {
     FETCH_REGISTER_REQUEST,
     FETCH_REGISTER_SUCESS,
     FETCH_REGISTER_FAILED
-} from '../Constants/ActionTypes'
+} from '../Constants/ActionTypes';
 import axios from 'axios';
 
 export const registerRequest = () => {
@@ -11,9 +11,10 @@ export const registerRequest = () => {
     }
 }
 
-export const registerSucess = () => {
+export const registerSucess = (data) => {
     return {
-        type: FETCH_REGISTER_SUCESS
+        type: FETCH_REGISTER_SUCESS,
+        data: data
     }
 }
 
@@ -23,11 +24,14 @@ export const registerFailed = () => {
     }
 }
 
-export const fetchRegister = () => {
+export const fetchRegister = (data) => {
+    const { email, password, firstname, lastname } = data;
+    console.log(data)
     return dispatch => {
-        (registerRequest());
-        axios.post('http://dummy.restapiexample.com/api/v1/create',
-            { name: "ummm", salary: "65757", age: "26" })
+        dispatch(registerRequest());
+        axios.post('http://uat.momsup.com.ph/momsup-magento-core/rest/V1/integration/customer/token ',
+            { firstname: firstname, lastname: lastname, email: email, password: password, })
+
             .then((res) => {
                 dispatch(registerSucess(res.data))
                 console.log(res)

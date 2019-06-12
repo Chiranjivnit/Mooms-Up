@@ -17,11 +17,15 @@ class Signup extends Component {
     }
 
     handleClick = (e) => {
-        this.props.fetchLogin('dada');
+       
         e.preventDefault()
         window.alert('Sorry Mr ' + this.state.email + ' Login page in undermaintenance, Thank you')
         console.log("Email Password" + this.state.email, this.state.password)
-
+         const payload={
+            email:this.state.email,
+            password:this.state.password
+         }
+         this.props.fetchLogin(payload);
     }
 
     render() {

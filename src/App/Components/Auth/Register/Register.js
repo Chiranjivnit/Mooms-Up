@@ -5,9 +5,8 @@ import Button from '@material-ui/core/Button';
 import '../Login/Login.css'
 import { NavLink } from 'react-router-dom';
 import LoginIcon from '../Login/LoginIcon';
-import Checkbox from './Checkbox';
-import { connect } from 'react-redux';
-import { fetchRegister } from '../../../Actions/RegisterActions';
+// import Checkbox from './Checkbox';
+
 
 
 class Register extends Component {
@@ -17,16 +16,38 @@ class Register extends Component {
             firstname: '',
             lastname: '',
             email: '',
-            password: ''
+            password: '',
+            isChecked: false
         }
     }
 
     handleregister = (e) => {
-        e.preventDefault()
+        e.preventDefault();
+
+        console.log(this.props)
         console.log("register Page" + this.state.email, this.state.firstname, this.state.lastname, this.state.password)
+        const payload = {
+            firstname:this.state.firstname,
+            lastname:this.state.lastname,
+            email: this.state.email,
+            password:this.state.password,
+        }
+        this.props.fetchRegister(payload);
         window.alert('Sorry Mr ' + this.state.firstname + ' Register page in undermaintenance , Thank you')
     }
+
+    handleChange = (e) => {
+        // e.preventDefault();
+        this.setState({ isChecked:e.target.checked });
+    }
     render() {
+
+        var msg;
+        if (this.state.isChecked) {
+            msg = "checked";
+        } else {
+            msg = "unchecked";
+        }
         return (
             <div className="loginBox">
                 <h1 className="h"> Welcome to Moms Up </h1>
@@ -89,7 +110,7 @@ class Register extends Component {
 
                         <section className="container">
                             <div >
-                                <input type="checkbox" checked="checked" />  By creating an account, I agree to the MomsUp
+                                <input onChange={this.handleChange} type="checkbox" class="filled-in" id="filled-in-box" defaultChecked={this.state.isChecked} />  By creating an account, I agree to the MomsUp
                             Terms of Use & privacy Policies.
                               <span class="checkmark"></span>
                             </div>
@@ -124,18 +145,5 @@ class Register extends Component {
     }
 }
 
-const mapStateToProps = () => {
-    return {
-        data: state.registerReducer.data,
-        error: state.registerReducer.error,
-        fetch: state.registerReducer.fetch
-    }
-}
 
-const mapDispatchToProps = dispatch => {
-    return {
-        fetchRegister: data => dispatch(fetchRegister(data))
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Register);
+export default Register;

@@ -27,12 +27,13 @@ export const loginFailed = (error) => {
 
 
 
-export const fetchLogin = (input) => {
-
+export const fetchLogin = (payload) => {
+    console.log(payload)
+ const { username , password } = payload
     return dispatch => {
         dispatch(loginRequest());
-        axios.post("http://dummy.restapiexample.com/api/v1/create",
-            { name: "ummm", salary: "65757", age: "26" })
+        axios.post("http://uat.momsup.com.ph/momsup-magento-core/rest/V1/integration/customer/token",
+            { username:username , password:password })
             .then(function (response) {
                 dispatch(loginSucess(response.data));
                 console.log(response);
