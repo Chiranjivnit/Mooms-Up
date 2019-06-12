@@ -1,4 +1,4 @@
-import React from 'react';
+import React , { useState } from 'react';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -22,6 +22,7 @@ import Tools from '../Navbar/Tools';
 import Community from '../Navbar/Community';
 import Store from '../Navbar/Store';
 import Resourses from '../Navbar/Resourses';
+import Dialog from '../Navbar/Dialog';
 
 
 const drawerWidth = 240;
@@ -125,6 +126,13 @@ function PersistentDrawerLeft() {
     const classes = useStyles();
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
+     
+    const [state, setState] = useState(true);
+
+    function toggle() {
+      state ? setState(false) : setState(true);
+    }
+
 
     function handleDrawerOpen() {
         setOpen(true);
@@ -190,13 +198,13 @@ function PersistentDrawerLeft() {
                     </IconButton>
                 </div>
                 <Divider />
-                <List>
+                <List >
                     {['Baby Tool'].map((text, index) => (
                         <ListItem button key={text}>
-                            <Tools >{index % 2 === 0 ? <InboxIcon /> : <Tools />} </Tools>
-                            <ListItemText primary={text} />
+                            <Tools onClick={toggle} state={state} >{index % 2 === 0 ? <InboxIcon /> : <Tools />}  {state ? <Dialog/> :null}</Tools>
+                            <ListItemText primary={text} /> 
                         </ListItem>
-                    ))}
+                    ))} 
                 </List>
                 <Divider />
                 <List>

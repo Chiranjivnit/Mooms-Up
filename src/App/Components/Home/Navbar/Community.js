@@ -5,6 +5,7 @@ import './Icons.css';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 
+
 const useStyles = makeStyles({
     avatar: {
         margin: 10,
@@ -27,7 +28,8 @@ function Community() {
         <div className="tool">
             <Grid container justify="center" alignItems='center' >
                 <header className="Tool-header">
-                    <img src={Images.chatbubbles} className={clases.bigAvatar} alt="logo" onClick={()=>handleCommunity()} />
+                <img src={Images.chatbubbles} className={clases.bigAvatar} alt="logo" onClick={()=>handleCommunity()} />
+      
                     
                 </header>
             </Grid>

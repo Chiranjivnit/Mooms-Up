@@ -17,6 +17,7 @@ class Signup extends Component {
     }
 
     handleClick = (e) => {
+        this.props.fetchLogin('dada');
         e.preventDefault()
         window.alert('Sorry Mr ' + this.state.email + ' Login page in undermaintenance, Thank you')
         console.log("Email Password" + this.state.email, this.state.password)
@@ -24,8 +25,9 @@ class Signup extends Component {
     }
 
     render() {
-
+        console.log(this.props)
         return (
+          
             <div className="loginBox">
 
                 <h1 className="h"> Welcome to Moms Up </h1>

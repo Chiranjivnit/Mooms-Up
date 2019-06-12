@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import Signup from './App/Components/Auth/Login/Signup';
+import Signup from './App/Containers/Login';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Register from './App/Components/Auth/Register/Register';
 import "./App/Components/Auth/Login/Login.css"
 import Homepage from './App/Components/Home/Homepage';
+//import Router from '../src/App/Router/Router';
 
 class App extends Component {
 
@@ -19,6 +20,9 @@ class App extends Component {
           </Switch>
         </div>
       </BrowserRouter>
+      // <div>
+      //   {/* <Route/> */}
+      // </div>
     );
   }
 }

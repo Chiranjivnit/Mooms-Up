@@ -6,6 +6,8 @@ import '../Login/Login.css'
 import { NavLink } from 'react-router-dom';
 import LoginIcon from '../Login/LoginIcon';
 import Checkbox from './Checkbox';
+import { connect } from 'react-redux';
+import { fetchRegister } from '../../../Actions/RegisterActions';
 
 
 class Register extends Component {
@@ -121,4 +123,19 @@ class Register extends Component {
         )
     }
 }
-export default Register;
+
+const mapStateToProps = () => {
+    return {
+        data: state.registerReducer.data,
+        error: state.registerReducer.error,
+        fetch: state.registerReducer.fetch
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchRegister: data => dispatch(fetchRegister(data))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Register);
