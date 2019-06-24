@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import Babyprofile from './Babyprofile';
-import Feed from './Feed';
+import Feed from '../Home/Babyfeed/Feed';
 import Sleep from './Sleep';
 import Sidebar from '../Home/Navbar/Sidebar';
 // import Slider from '../../Components/Home/Navbar/';
 import Grid from '@material-ui/core/Grid';
-import { makeStyles,withStyles } from '@material-ui/core/styles';
-import { Paper, Dialog } from '@material-ui/core';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
+import { Paper } from '@material-ui/core';
+import { Redirect } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -21,8 +22,25 @@ const useStyles = makeStyles(theme => ({
 
 class App extends Component {
 
+    constructor(props) {
+        super(props)
+        const token = localStorage.getItem("token")
+
+        let logedIn = true;
+        if (token == null) {
+            logedIn = false
+        }
+
+        this.state = {
+            logedIn
+        }
+    }
+
     render() {
-       const { classes } = this.props
+        const { classes } = this.props
+        if (this.state.logedIn === false) {
+             return <Redirect to="/"></Redirect>
+        }
         return (
             <React.Fragment>
 
@@ -42,7 +60,7 @@ class App extends Component {
                     <Feed />
                     <Sleep />
                     {/* <Slider/> */}
-                  
+
                 </div>
 
             </React.Fragment>
@@ -51,4 +69,4 @@ class App extends Component {
     }
 }
 
-export default withStyles(useStyles) (App);
+export default withStyles(useStyles)(App);

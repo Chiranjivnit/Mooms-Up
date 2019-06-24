@@ -12,12 +12,12 @@
 }
 .heading{
   text-align: center;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .loginBox{
-   width: 450px;
-   height: 750px;
+   width: 400px;
+   height: 650px;
    background:whitesmoke;
    color:rgb(77, 67, 67);
    top: 50%;
@@ -30,21 +30,30 @@
    border-radius: 10px;
 }
 
-.input {font-family: 'Times New Roman', Times, serif;
+.input {font-family: Arial, Helvetica, sans-serif;
   width: 350px;
   height: 50px;
   margin: 0 50px 0 0;
   padding: 0px;
 }
 .p{
-  
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
   text-align: center;
   opacity: 0.8;
+  margin-top: 20px;
 }
 .h{
   margin: 10 10px 30 30;
+  margin-top: 25px;
   text-align: center;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+}
+.l{
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 18px;
+   text-align: center;
 }
 
 .disabled {
@@ -72,25 +81,19 @@
     text-align: center;
     color: blue;
     opacity: 0.7;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 16px;
   }
   .forgot{
     color:rgb(247, 7, 19);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
   }
 
-  .container {
-    display: block;
-    position: relative;
-    padding-left: 35px;
-    margin-bottom: 15px;
-    margin-top: 15px;
-    cursor: pointer;
-    font-size: 17px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    margin: 50 50px 50 50;
-  }
+  
   
   /* Hide the browser's default checkbox */
   .container input {
@@ -102,6 +105,11 @@
     margin-top: 17;
   }
   
+   .checkboxparagraph{
+     font-size: 13px;
+     font-family: Arial, Helvetica, sans-serif;
+     margin-top: 1opx;
+   }
   /* Create a custom checkbox */
   .checkmark {
     position: absolute;

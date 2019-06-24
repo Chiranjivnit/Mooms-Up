@@ -4,7 +4,7 @@ import Images from '../../../Themes/Images'
 // import '../Navbar/Icons.css';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
-import Dialog from './Dialog';
+// import Dialog from './Dialog';
 const useStyles = makeStyles({
     avatar: {
         margin: 10,

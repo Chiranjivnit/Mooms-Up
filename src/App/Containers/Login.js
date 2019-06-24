@@ -4,7 +4,7 @@ import { fetchLogin } from '../Actions/LoginActions';
 
 const mapStateToProps = state => {
   return {
-    data: state.loginReducer.data,
+    loginData: state.loginReducer.data,
     fetching: state.loginReducer.fetching,
     error: state.loginReducer.error
   };

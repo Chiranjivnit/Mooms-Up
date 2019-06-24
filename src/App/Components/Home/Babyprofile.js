@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React  from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import Grid from '@material-ui/core/Grid';
@@ -18,8 +18,8 @@ const useStyles = makeStyles(theme => ({
     },
     bigAvatar: {
         margin: 10,
-        width: 250,
-        height: 250
+        width: 180,
+        height: 180
     },
     height: {
         marginLeft: 50,
@@ -52,7 +52,7 @@ function Babyprofile() {
                              </label> <br />
 
                             <label>
-                                <img src={Images.height} className="babyicon" alt="height"></img>60cm
+                                <img src={Images.height} className="babyicon" alt="height"></img> 60cm
                              </label><br />
 
                             <label>
@@ -62,12 +62,14 @@ function Babyprofile() {
 
                         </div>
                     </div>
-                    <div className="babydiary">
-                        <h2 className="">Baby Diary</h2> <h3 className="seeall">see all ></h3>
-                    </div>
-                </div>
 
+                </div>
+                <div className="">
+                    {/* <p className="">Baby Diary</p> <p className="">see all ></p> */}
+
+                </div>
             </Grid>
+
         </Grid>
     );
 }

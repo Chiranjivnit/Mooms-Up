@@ -1,9 +1,10 @@
+import axios from 'axios';
 import {
     FETCH_REGISTER_REQUEST,
     FETCH_REGISTER_SUCESS,
     FETCH_REGISTER_FAILED
 } from '../Constants/ActionTypes';
-import axios from 'axios';
+
 
 export const registerRequest = () => {
     return {

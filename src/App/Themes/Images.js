@@ -13,8 +13,11 @@ const images = {
     server: require('../Assets/server.svg'),
     settings: require('../Assets/settings.svg'),
     weight: require('../Assets/weight.svg'),
-    whitebackground: require('../Assets/whitebackground.jpg')
-
-}
-
+    whitebackground: require('../Assets/whitebackground.jpg'),
+    needle: require('../Assets/needle.png'),
+    leftarrow: require('../Assets/leftarrow.svg'),
+     edit: require('../Assets/edit.svg'),
+     calendar:require('../Assets/calendar.svg'),
+     timer:require('../Assets/timer.svg')
+}   
 export default images;

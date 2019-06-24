@@ -27,10 +27,10 @@ class Register extends Component {
         console.log(this.props)
         console.log("register Page" + this.state.email, this.state.firstname, this.state.lastname, this.state.password)
         const payload = {
-            firstname:this.state.firstname,
-            lastname:this.state.lastname,
+            firstname: this.state.firstname,
+            lastname: this.state.lastname,
             email: this.state.email,
-            password:this.state.password,
+            password: this.state.password,
         }
         this.props.fetchRegister(payload);
         window.alert('Sorry Mr ' + this.state.firstname + ' Register page in undermaintenance , Thank you')
@@ -38,20 +38,20 @@ class Register extends Component {
 
     handleChange = (e) => {
         // e.preventDefault();
-        this.setState({ isChecked:e.target.checked });
+        this.setState({ isChecked: e.target.checked });
     }
     render() {
 
-        var msg;
-        if (this.state.isChecked) {
-            msg = "checked";
-        } else {
-            msg = "unchecked";
-        }
+        // var msg;
+        // if (this.state.isChecked) {
+        //     msg = "checked";
+        // } else {
+        //     msg = "unchecked";
+        // }
         return (
             <div className="loginBox">
                 <h1 className="h"> Welcome to Moms Up </h1>
-                <h3 className="h">Please Register your Account</h3>
+                <h3 className="l">Please Register your Account</h3>
 
                 <Container >
                     <form  >
@@ -110,9 +110,11 @@ class Register extends Component {
 
                         <section className="container">
                             <div >
-                                <input onChange={this.handleChange} type="checkbox" class="filled-in" id="filled-in-box" defaultChecked={this.state.isChecked} />  By creating an account, I agree to the MomsUp
-                            Terms of Use & privacy Policies.
-                              <span class="checkmark"></span>
+                                <input onChange={this.handleChange} type="checkbox" className="filled-in" id="filled-in-box" defaultChecked={this.state.isChecked} />
+                                <p className="checkboxparagraph">By creating an account, I agree to the MomsUp
+                                 Terms of Use & privacy Policies.
+                                 </p>
+                                <span class="checkmark"></span>
                             </div>
 
                         </section>
@@ -129,14 +131,14 @@ class Register extends Component {
 
 
                     <Button
-                        style={{ width: "150px", height: "50px" }}
+                        style={{ width: "120px", height: "40px" }}
                         type="submit"
                         variant="contained"
                         color="primary"
                         onClick={this.handleregister}
                     > Register </Button>
                 </Container>
-                <h3 className="p">Already have an account <NavLink to="/">  LOGIN </NavLink> </h3>
+                <h3 className="p">Already have an account <NavLink to="/">  Login </NavLink> </h3>
                 <h3 className="p">or Register using </h3>
                 <LoginIcon />
 

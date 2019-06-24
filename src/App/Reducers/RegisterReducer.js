@@ -23,9 +23,10 @@ const registerReducer = (state = initialState, action) => {
 
         case FETCH_REGISTER_FAILED:
             return { ...state, fetch: false, error: action.error }
-    }
 
-    return state
+        default:
+            return state;
+    }
 }
 
 export default registerReducer;
