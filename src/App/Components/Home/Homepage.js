@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import Babyprofile from './Babyprofile';
-import Feed from '../Home/Babyfeed/Feed';
-import Sleep from './Sleep';
-import Sidebar from '../Home/Navbar/Sidebar';
+// import Babyprofile from './Babyprofile';
+// import Feed from '../Home/Babyfeed/Feed';
+// import Sleep from './Sleep';
+// import Sidebar from '../Home/Navbar/Sidebar';
 // import Slider from '../../Components/Home/Navbar/';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import { Paper } from '@material-ui/core';
 import { Redirect } from 'react-router-dom';
+import Vaccine from './Babyfeed/Vaccine';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -48,19 +49,20 @@ class App extends Component {
 
                     <div className={classes.root}>
                         <Grid item xs={6}>
-                            <Paper className={classes.paper}>Test message</Paper>
+                            <Paper className={classes.paper}></Paper>
                         </Grid>
                     </div>
-                    <div>
-                        <Sidebar />
-                        {/* <Slider/> */}
-                    </div>
+                         {/* <Sidebar />
+                         <Slider/> 
+                   
 
                     <Babyprofile />
                     <Feed />
                     <Sleep />
-                    {/* <Slider/> */}
+                    <Slider/>  */}
 
+                    <Vaccine/>
+                
                 </div>
 
             </React.Fragment>

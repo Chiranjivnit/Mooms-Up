@@ -15,25 +15,34 @@ class Tabpage extends Component {
             tabId: '',
             vaccine_required: '',
             vaccine_taken: '',
-            selectedObject: ""
+            selectedObject: "",
+            doseObject:"",
         }
     }
 
-    _tabChange(tabId) {
+    _tabChange=(tabId)=> {
         this.setState({ tabId });
         this.props.fetchVaccineMonthId(tabId.slice(0, 1));
     }
 
 
-    _onClick(monthIdData) {
+    _onClick=(monthIdData) =>{
         console.log("monthdata", monthIdData);
         this.setState({ selectedObject: monthIdData })
+    }
+
+    _onDose=(doseObject)=>{
+      this.setState({
+           doseObject:doseObject
+      })
     }
 
     render() {
 
         // console.log(this.props.vaccineMonthIdData.vaccine_required);
-        const displayVaccineMonthdata = this.props.vaccineMonthIdData.map((monthdata, index) => (
+        const displayVaccineMonthdata = this.props.vaccineMonthIdData.map((monthdata) => {
+            console.log(monthdata)
+            return(
             <ListGroup variant="flush" key={monthdata.id} onClick={this._onClick.bind(this, monthdata)}>
                 <ListGroup.Item onClick={this._onClick.bind(this, monthdata)}>
                     <div className="row">
@@ -46,15 +55,15 @@ class Tabpage extends Component {
                         <div className="col-sm-6">
                             <div key={monthdata.id}>
                                 <p className="DTap">{monthdata.name}</p>
-                                Dose 2/3
+                               <p onClick={this._onClick.bind(this,monthdata)}>Dose {monthdata.vaccine_taken}/{monthdata.vaccine_required}</p> 
                             </div>
 
                         </div>
                     </div>
                 </ListGroup.Item>
             </ListGroup>
-        ))
-
+        )})
+       
         return (
             <Tabs
                 className="rwt__tabs"

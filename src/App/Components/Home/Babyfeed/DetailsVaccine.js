@@ -2,9 +2,28 @@ import React, { Component } from 'react';
 import '../../Home/Homepage.css';
 import Images from '../../../Themes/Images';
 import { NavLink } from 'react-router-dom';
-import { ListGroup } from 'react-bootstrap';
+import { ListGroup, Form } from 'react-bootstrap';
+// import Calendar from 'react-calendar';
+import Calendar from 'react-calendar/dist/entry.nostyle';
 
 class DetailsVaccine extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      date: new Date(),
+      isShowCalender: false,
+    }
+  }
+
+
+  _onCalenderhandleChange = (date) => {
+
+    this.setState({
+      isShowCalender: !this.state.isShowCalender,
+      date
+    })
+  }
 
   render() {
     return (
@@ -138,6 +157,12 @@ class DetailsVaccine extends Component {
                     </div>
                     <div className="col-sm-4">
                       <div >
+                        {/* <Form.Group>
+                          <Form.label><img src={Images.calendar} className="calendar" alt="leftarrow" /></Form.label>
+                          <Form.Control type="date">
+
+                          </Form.Control>
+                        </Form.Group> */}
                         <img src={Images.calendar} className="calendar" alt="leftarrow" />
                       </div>
                     </div>
@@ -176,14 +201,14 @@ class DetailsVaccine extends Component {
           </ListGroup>
 
           <fieldset>
-          <legend>Manufacture</legend>
-          <ListGroup>
-            <ListGroup.Item className="datedetailvaccine">
-             
-              
+            <legend>Manufacture</legend>
+            <ListGroup>
+              <ListGroup.Item className="datedetailvaccine">
+
+
                 <div className="row">
 
-                  
+
                   <div className="col-sm-6">
 
                     <p className="clinicparagrapg">Manufacture Name</p>
@@ -205,67 +230,67 @@ class DetailsVaccine extends Component {
                     </div>
                   </div>
                 </div>
-                
+
+              </ListGroup.Item>
+            </ListGroup>
+          </fieldset>
+          <ListGroup>
+            <ListGroup.Item className="notedetailvaccine">
+              <div className="row">
+                <div className="col-sm-6">
+
+                  <p className="noteparagraphdetailvaccine">Notes</p>
+                </div>
+                <div className="col-sm-3">
+
+                </div>
+                <div className="col-sm-3">
+                  {/* nested row and coloumn */}
+                  <div className="row">
+                    <div className="col-sm-4">
+
+                    </div>
+                    <div className="col-sm-4">
+
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
             </ListGroup.Item>
           </ListGroup>
-          </fieldset>
-            <ListGroup>
-              <ListGroup.Item className="notedetailvaccine">
-                <div className="row">
-                  <div className="col-sm-6">
 
-                    <p className="noteparagraphdetailvaccine">Notes</p>
-                  </div>
-                  <div className="col-sm-3">
-
-                  </div>
-                  <div className="col-sm-3">
-                    {/* nested row and coloumn */}
-                    <div className="row">
-                      <div className="col-sm-4">
-
-                      </div>
-                      <div className="col-sm-4">
-
-                      </div>
+          <ListGroup>
+            <ListGroup.Item className="savebutton">
+              <div className="row">
+                <div className="col-sm-3">
+                  <p className="paragraphdetailvaccine"></p>
+                </div>
+                <div className="col-sm-6">
+                  <p className="paragraphdetailvaccine">SAVE</p>
+                </div>
+                <div className="col-sm-3">
+                  {/* nested row and coloumn */}
+                  <div className="row">
+                    <div className="col-sm-4">
 
                     </div>
-                  </div>
-                </div>
-
-              </ListGroup.Item>
-            </ListGroup>
-
-            <ListGroup>
-              <ListGroup.Item className="savebutton">
-                <div className="row">
-                  <div className="col-sm-3">
-                    <p className="paragraphdetailvaccine"></p>
-                  </div>
-                  <div className="col-sm-6">
-                    <p className="paragraphdetailvaccine">SAVE</p>
-                  </div>
-                  <div className="col-sm-3">
-                    {/* nested row and coloumn */}
-                    <div className="row">
-                      <div className="col-sm-4">
-
-                      </div>
-                      <div className="col-sm-4">
-
-                      </div>
+                    <div className="col-sm-4">
 
                     </div>
+
                   </div>
                 </div>
+              </div>
 
-              </ListGroup.Item>
-            </ListGroup>
+            </ListGroup.Item>
+          </ListGroup>
 
         </div>
-        </div>
-        )
-      }
-    }
-    
+      </div>
+    )
+  }
+}
+
 export default DetailsVaccine;

@@ -6,22 +6,24 @@ import { NavLink, Redirect } from 'react-router-dom';
 import "../Login/Login.css"
 import LoginIcon from '../Login/LoginIcon';
 import { connect } from 'react-redux';
-import Dialog from '../Login/Dialog';
+// import Dialog from '../Login/Dialog';
+import { Modal,  } from 'react-bootstrap';
 
 
 class Signup extends Component {
 
     constructor(props) {
         super(props);
-        let logedIn = false
+        let loggedIn = false
         this.state = {
             email: '',
             password: '',
             loginSucessData: [],
             error: [],
             fetching: [],
-            logedIn,
-            isOpen: false
+            loggedIn,
+            isOpen: false , // adModalShow:false
+            show:false
         }
     }
 
@@ -30,15 +32,16 @@ class Signup extends Component {
         e.preventDefault()
         const { email, password } = this.state;
         if (email === 'chiranjiv.r@spurtreetech.in' && password === 'spurtree') {
-            localStorage.setItem("token", "fsfxhgf34bxba@*")
+            localStorage.setItem("token", "fsfxhgf34bxba")
             this.setState({
-                logedIn: true
+                loggedIn: true
             })
         } else {
             console.log('ffff==>')
             this.setState({
                 isOpen: true
             })
+            this.handleShow();
             // window.alert('sorry email and password does not match')
         }
         console.log("Email Password" + this.state.email, this.state.password)
@@ -60,10 +63,19 @@ class Signup extends Component {
         }
     }
 
+    handleClose=() =>{
+        this.setState({ show: false });
+      }
+    
+      handleShow=()=> {
+        this.setState({ show: true });
+      }
+
     render() {
+        // let addModalClose =()=>this.setState({addModalShow:false})
         console.log(this.props)
-        if (this.state.logedIn) {
-            return <Redirect to="/Homepage"></Redirect>
+        if (this.state.loggedIn) {
+            return <Redirect to="/Vaccine"></Redirect>
         }
 
         return (
@@ -119,10 +131,28 @@ class Signup extends Component {
                 <div>
                     {/* {this.state.loginSucessData ? <Homepage /> : window.alert(this.state.error)} */}
                 </div>
+                {/* <Button variant="primary" onClick={this.handleShow}>
+                
+              </Button> */}
+      
+              <Modal show={this.state.show} onHide={this.handleClose}>
+                <Modal.Header closeButton>
+                  <Modal.Title>Oops something went wrong</Modal.Title>
+                </Modal.Header>
+                <Modal.Body> Please check your email and password.</Modal.Body>
+                <Modal.Footer>
+                  <Button variant="secondary" onClick={this.handleClose}>
+                    Close
+                  </Button>
+                  <Button variant="primary" onClick={this.handleClose}>
+                    Login Again
+                  </Button>
+                </Modal.Footer>
+              </Modal>
 
-                <Dialog isOpen={this.state.isOpen} onClose={(e) => this.setState({ isOpen: false })}>
+                {/* <Dialog isOpen={this.state.isOpen} onHide={(e) => this.setState({ isOpen: false })}>
                     Oops You entered wrong email or password, Please check your email and password.
-                  </Dialog>
+                  </Dialog> */}
 
 
                 {/* <NavLink to="/Homepage"> Homepage </NavLink> */}

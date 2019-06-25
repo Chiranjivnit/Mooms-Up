@@ -16,7 +16,7 @@ function Router() {
         <BrowserRouter>
             <div className="body">
                 <Switch>
-                    <Route path="/Homepage" component={Homepage} exact />
+                    {/* <Route path="/Homepage" component={Homepage} exact /> */}
                     <Route path="/" component={Signup} exact />
                     <Route path="/Register" component={Register} exact />
                     <Route path="/Vaccine" component={Vaccine} exact />

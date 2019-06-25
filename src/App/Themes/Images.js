@@ -18,6 +18,7 @@ const images = {
     leftarrow: require('../Assets/leftarrow.svg'),
      edit: require('../Assets/edit.svg'),
      calendar:require('../Assets/calendar.svg'),
-     timer:require('../Assets/timer.svg')
+     timer:require('../Assets/timer.svg'),
+     logout:require('../Assets/logout.png')
 }   
 export default images;
