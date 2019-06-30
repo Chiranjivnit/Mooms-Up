@@ -4,6 +4,7 @@ import '../../Home/Homepage.css'
 import Images from '../../../Themes/Images';
 import { NavLink , Redirect } from 'react-router-dom';
 import Tab from './Tab';
+// import "../Homepage.css"
 
 class Vaccine extends Component {
 
@@ -28,8 +29,8 @@ class Vaccine extends Component {
                         <div className="col-sm-3">
                             <div className="imagepadding">
                                 <header className="headervaccine">
-                                  <label>
-                                    <NavLink  to="/Homepage"><img src={Images.leftarrow} className="leftarrow" alt="leftarrow" /> </NavLink> Vaccine  
+                                  <label >
+                                    <NavLink  to="/Homepage" className="navlink"><img src={Images.leftarrow} className="leftarrow" alt="leftarrow"  /> Vaccine </NavLink>    
                                     
                                    </label>
                                 </header>
@@ -38,17 +39,14 @@ class Vaccine extends Component {
                         <div className="col-sm-6">
                            <div>
                                <header className="editvaccine">
-                                  <label>
-                                    <NavLink to="/DetailsVaccine"><img src={Images.edit} className="details" alt="leftarrow" /> </NavLink><p>Details</p>            
-                                    
-                                   </label>
+                                 
                                 </header>
                             </div>
                         </div>  
                         <div className="col-sm-2">
-                           <div className="editvaccine">
+                           <div className="editvaccine" onClick={this._onLogout}>
                               <label>
-                                  <img src={Images.logout} className="details" alt="logout" onClick={this._onLogout}/>
+                                  <img src={Images.logout} className="details" alt="logout" /> Logout
                               </label> 
                            </div>
                         </div>

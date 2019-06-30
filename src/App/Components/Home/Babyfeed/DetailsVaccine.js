@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import '../../Home/Homepage.css';
 import Images from '../../../Themes/Images';
 import { NavLink } from 'react-router-dom';
-import { ListGroup, Form } from 'react-bootstrap';
-// import Calendar from 'react-calendar';
-import Calendar from 'react-calendar/dist/entry.nostyle';
+import { ListGroup, Form, Button, FormControl, FormGroup } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { sendVaccineTaken } from '../../../Actions/VaccineAction';
+
+
 
 class DetailsVaccine extends Component {
 
@@ -13,9 +15,16 @@ class DetailsVaccine extends Component {
     this.state = {
       date: new Date(),
       isShowCalender: false,
+      isVaccineGiven: false,
+      vaccineTaken: 0,
+      vaccineRequired: '',
+
+      userDate: "",
+      clinicName: '',
+      manufactureName: '',
+      note: '',
     }
   }
-
 
   _onCalenderhandleChange = (date) => {
 
@@ -25,7 +34,47 @@ class DetailsVaccine extends Component {
     })
   }
 
+  toggleButtonChangeColor = () => {
+    this.setState({
+      isVaccineGiven: !this.state.isVaccineGiven,
+
+    })
+
+    if (this.state.isVaccineGiven === false) {
+      return this.setState({ vaccineTaken: this.props.vaccineNameTakenRequired.vaccine_taken + 1 },()=>{
+        this.props.sendVaccineTaken (this.state.vaccineTaken)
+      })
+
+    } else {
+      this.setState({ vaccineTaken: this.props.vaccineNameTakenRequired.vaccine_taken },()=>{
+        this.props.sendVaccineTaken(this.state.vaccineTaken)
+      })
+    }
+
+    //this.props.sendVaccineTaken(this.state.vaccineTaken)
+
+  }
+
+  _handleChangeForm = (e) => {
+    this.setState({
+      [e.target.id]: e.target.value
+
+    })
+  }
+
+  handleSubmit = (e) => {
+    e.preventDeafault();
+  }
+
   render() {
+    console.log(this.state.isVaccineGiven)
+    console.log(this.state.vaccineTaken)
+    console.log(this.props.vaccineNameTakenRequired.vaccine_taken)
+    // console.log(this.props.vaccineNameTakenRequired)
+    // console.log(this.state.vaccineTaken, this.state.vaccineRequired)
+    console.log(this.state.userDate, this.state.clinicName, this.state.manufactureName, this.state.note)
+    const { userDate, clinicName, manufactureName, note } = this.state;
+    let btnClass = this.state.isVaccineGiven ? "orangeButton" : "grayButton";
     return (
       <div className="backgroundbody" >
         <div className="container">
@@ -35,7 +84,7 @@ class DetailsVaccine extends Component {
                 <header className="headervaccine">
                   <label>
                     <NavLink to="/Vaccine"><img src={Images.leftarrow} className="leftarrow" alt="leftarrow" /> </NavLink> Vaccine Detail
-              </label>
+                  </label>
                 </header>
               </div>
             </div>
@@ -77,215 +126,143 @@ class DetailsVaccine extends Component {
               <div className="col-sm-10">
                 <div className="detailvaccineparagraph">
 
-                  <h4 > DTap or DtwP - Dose 2 / 3</h4>
+                  <h4 > {this.props.vaccineNameTakenRequired.name} - Dose {this.state.vaccineTaken} / {this.props.vaccineNameTakenRequired.vaccine_required}</h4>
 
                 </div>
 
               </div>
-              <div className="col-sm-2">
-                <div>
-                </div>
-              </div>
+
             </div>
 
           </div>
-          <ListGroup variant="flush">
-            <ListGroup.Item>
 
-              <div className="row">
-                <div className="">
-                  <div className="col-sm-2">
+          <div className="row">
+            <div className="col-sm-12">
+              <ListGroup variant="flush">
+                <ListGroup.Item>
 
-                  </div>
-                </div>
-              </div>
-            </ListGroup.Item>
-          </ListGroup>
-          <ListGroup>
-            <ListGroup.Item className="boxcolordetailvaccine">
-              <div className="row">
-                <div className="col-sm-6">
-                  <p className="VaccineGiven">Vaccine Given ?</p>
-                </div>
-                <div className="col-sm-3">
-
-                </div>
-                <div className="col-sm-3">
-                  {/* nested row and coloumn */}
                   <div className="row">
-                    <div className="col-sm-4">
-                      <div className="orangebutton">
-                        <div className="card bg-warning text-white" >
-                          <div className="card-body">
-                            OFF
-                            </div>
+                    <div className="">
+                      <div className="col-sm-2">
+
+                      </div>
+                    </div>
+                  </div>
+                </ListGroup.Item>
+              </ListGroup>
+              <ListGroup>
+                <ListGroup.Item className="boxcolordetailvaccine">
+                  <div className="row">
+                    <div className="col-sm-6">
+                      <p className="VaccineGiven">Vaccine Given ?</p>
+                    </div>
+                    <div className="col-sm-3">
+
+                    </div>
+                    <div className="col-sm-3">
+                      {/* nested row and coloumn */}
+                      <div className="row">
+                        <div className="col-sm-6">
+
+
+
+                        </div>
+                        <div className="col-sm-6">
+
+                          <button
+                            className={btnClass}
+                            onClick={this.toggleButtonChangeColor}
+                          >
+                            {this.state.isVaccineGiven ? "ON" : "OFF"}
+                          </button>
                         </div>
 
                       </div>
                     </div>
-                    <div className="col-sm-4">
-                      <div className="graybutton">
-                        <div className="card bg-light text-dark" >
-                          <div className="card-body">
-                            ON
-                            </div>
-                        </div>
-                      </div>
-                    </div>
-
                   </div>
-                </div>
+
+                </ListGroup.Item>
+              </ListGroup>
+
+              <br />
+
+              <div className="date">
+                <form onSubmit={this.handleSubmit}>
+                  <FormGroup controlId="userDate" >
+                    <FormControl
+                      autoFocus
+                      size="lg"
+                      type="date"
+                      name="userDate"
+                      value={userDate}
+                      placeholder={this.state.date}
+                      onChange={this._handleChangeForm}
+                    />
+                  </FormGroup>
+                </form>
               </div>
 
-            </ListGroup.Item>
-          </ListGroup>
+              <br />
 
-          <ListGroup>
-            <ListGroup.Item className="datedetailvaccine">
-              <div className="row">
-                <div className="col-sm-6">
-                  <h2 className="VaccineGiven">08th May, 2019</h2>
-                </div>
-                <div className="col-sm-3">
+              <div className="ClinicManufacture">
+                <form onSubmit={this.handleSubmit}>
+                  <FormGroup controlId="clinicName">
+                    <FormControl
+                      autoFocus
+                      size="lg"
+                      type="text"
+                      placeholder="Clinic Name"
+                      name=" clinicName"
+                      value={clinicName}
+                      onChange={this._handleChangeForm}
+                    />
+                  </FormGroup>
 
-                </div>
-                <div className="col-sm-3">
-                  {/* nested row and coloumn */}
-                  <div className="row">
-                    <div className="col-sm-4">
+                  <br />
+                  <FormGroup controlId="manufactureName">
+                    <FormControl
+                      autoFocus
+                      size="lg"
+                      type="text"
+                      placeholder="Manufacture Name"
+                      className="formsOut"
+                      name=" manufactureName"
+                      value={manufactureName}
+                      onChange={this._handleChangeForm} />
+                  </FormGroup>
 
-                    </div>
-                    <div className="col-sm-4">
-                      <div >
-                        {/* <Form.Group>
-                          <Form.label><img src={Images.calendar} className="calendar" alt="leftarrow" /></Form.label>
-                          <Form.Control type="date">
-
-                          </Form.Control>
-                        </Form.Group> */}
-                        <img src={Images.calendar} className="calendar" alt="leftarrow" />
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
+                </form>
               </div>
 
-            </ListGroup.Item>
-          </ListGroup>
+              <br />
+              <div className="note" >
+                <form onSubmit={this.handleSubmit}>
+                  <FormGroup controlId="note" >
 
-          <ListGroup>
-            <ListGroup.Item className="datedetailvaccine">
-              <div className="row">
-                <div className="col-sm-6">
-                  <p className="clinicparagrapg">Clinic Name</p>
-                </div>
-                <div className="col-sm-3">
+                    <FormControl
+                      autoFocus
+                      as="textarea"
+                      rows="5"
+                      placeholder="Note"
+                      size="lg" name="note"
+                      value={note}
+                      onChange={this._handleChangeForm} />
 
-                </div>
-                <div className="col-sm-3">
-                  {/* nested row and coloumn */}
-                  <div className="row">
-                    <div className="col-sm-4">
-
-                    </div>
-                    <div className="col-sm-4">
-
-                    </div>
-
-                  </div>
-                </div>
+                  </FormGroup>
+                </form>
               </div>
+            </div>
+          </div>
 
-            </ListGroup.Item>
-          </ListGroup>
-
-          <fieldset>
-            <legend>Manufacture</legend>
-            <ListGroup>
-              <ListGroup.Item className="datedetailvaccine">
-
-
-                <div className="row">
+          <NavLink to="/Vaccine">
+            <div className="save">
+              <Button variant="secondary" size="lg" block type="button" onSubmit={this.handleSubmit} >
+                SAVE
+            </Button>
+            </div>
+          </NavLink>
 
 
-                  <div className="col-sm-6">
-
-                    <p className="clinicparagrapg">Manufacture Name</p>
-                  </div>
-
-                  <div className="col-sm-3">
-
-                  </div>
-                  <div className="col-sm-3">
-                    {/* nested row and coloumn */}
-                    <div className="row">
-                      <div className="col-sm-4">
-
-                      </div>
-                      <div className="col-sm-4">
-
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-
-              </ListGroup.Item>
-            </ListGroup>
-          </fieldset>
-          <ListGroup>
-            <ListGroup.Item className="notedetailvaccine">
-              <div className="row">
-                <div className="col-sm-6">
-
-                  <p className="noteparagraphdetailvaccine">Notes</p>
-                </div>
-                <div className="col-sm-3">
-
-                </div>
-                <div className="col-sm-3">
-                  {/* nested row and coloumn */}
-                  <div className="row">
-                    <div className="col-sm-4">
-
-                    </div>
-                    <div className="col-sm-4">
-
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-
-            </ListGroup.Item>
-          </ListGroup>
-
-          <ListGroup>
-            <ListGroup.Item className="savebutton">
-              <div className="row">
-                <div className="col-sm-3">
-                  <p className="paragraphdetailvaccine"></p>
-                </div>
-                <div className="col-sm-6">
-                  <p className="paragraphdetailvaccine">SAVE</p>
-                </div>
-                <div className="col-sm-3">
-                  {/* nested row and coloumn */}
-                  <div className="row">
-                    <div className="col-sm-4">
-
-                    </div>
-                    <div className="col-sm-4">
-
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-
-            </ListGroup.Item>
-          </ListGroup>
 
         </div>
       </div>
@@ -293,4 +270,16 @@ class DetailsVaccine extends Component {
   }
 }
 
-export default DetailsVaccine;
+const mapStateToProps = (state) => {
+  return {
+    vaccineNameTakenRequired: state.vaccineReducer.sendVaccineData
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    sendVaccineTaken: vaccineTaken => dispatch(sendVaccineTaken(vaccineTaken))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(DetailsVaccine);

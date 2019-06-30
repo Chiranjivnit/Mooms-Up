@@ -378,7 +378,9 @@ img.leftarrow{
    color: brown;
 
 }
+img.leftarr:hover{
 
+}
 img.details{
    height: 30px;
    width: 30px;
@@ -598,6 +600,17 @@ img.detaivaccineneedle{
    margin-top: 10px;
 }
 
+.navlink{
+   text-decoration:none;
+   color: black;
+   cursor: pointer;
+}
+.navlink:hover{
+   text-decoration: none;
+   color: black;
+   cursor: pointer;
+}
+
 /* vaccine .js css file  using bootstrap*/
 
  /* Tab css  */
@@ -663,8 +676,91 @@ img.detaivaccineneedle{
     margin-left: 50px;
  }
 
+ .vaccineDetailTextArea{
+    border-color: orange;
+ }
 
+ .formsOut input{
+   border-color: orange;
+   margin-top: 30px;
+   height: 90px;
+   cursor: pointer;
+}
+.formsOut input:hover{
+   
+}
+
+
+.date input{
+   height: 70px;
+   background-color: rgb(240, 238, 238);
+   cursor: pointer;
+}
+.note input{
+   height: 150px;
+   background-color: rgb(240, 238, 238);
+   
+}
+.ClinicManufacture input{
+   height: 70px;
+   
+   background-color:rgb(240, 238, 238);
+}
  /* Tab css  */
+
+ .save button{
+    margin-top: 80px;
+    height: 70px;
+    cursor: pointer;
+ }
+
+ .grayButton{
+   background-color: rgb(83, 78, 78);
+   color: rgb(255, 166, 0);
+   height: 55px;
+   width: 70px;
+   border-radius: 7px;
+   font-size: 20px;
+   cursor: pointer;
+   text-align: center;
+   font-weight: bold;
+ }
+ .orangeButton{
+   background-color: rgb(255, 168, 7);
+   color: rgb(75, 68, 68);
+   height: 55px;
+   width: 70px;
+   border-radius: 7px;
+   font-size: 20px;
+   cursor: pointer;
+   text-align: center;
+   font-weight: bold;
+  }
+  
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media screen and (max-width:1020px){
 
@@ -726,6 +822,8 @@ img.detaivaccineneedle{
    }
 }
 
+
+
 @media screen and (max-width:600px){
 
    .babyprofile{
@@ -785,3 +883,6 @@ img.detaivaccineneedle{
 
    }
 }
+
+
+

@@ -4,7 +4,10 @@ import {
     FETCH_VACCINE_FAILED,
 
     FETCH_VACCINE_MONTHID_SUCESS,
-    FETCH_VACCINE_MONTHID_FAILED
+    FETCH_VACCINE_MONTHID_FAILED,
+    SEND_VACCINE_DATA,
+
+    SEND_VACCINE_TAKEN
 } from '../Constants/ActionTypes';
 
 import axios from 'axios';
@@ -61,12 +64,13 @@ const apiUrl = 'http://localhost:9000/api/v1';
 //     }
 // }
 
-export const vaccineMonthIdsucess = (monthIdData) => (dispatch) => {
+export const vaccineMonthIdsucess = (monthIdData, ) => {
     console.log("monthdata", monthIdData);
-    dispatch({
+    return {
         type: FETCH_VACCINE_MONTHID_SUCESS,
-        monthIdData
-    })
+        monthIdData,
+
+    }
 }
 
 export const vaccineMonthIdFailed = (error) => {
@@ -77,7 +81,7 @@ export const vaccineMonthIdFailed = (error) => {
 }
 
 
-export const fetchVaccineMonthId = month => {
+export const fetchVaccineMonthId = (month, ) => {
     console.log("month", month);
     return (dispatch) => {
         console.log(month, "month");
@@ -88,5 +92,21 @@ export const fetchVaccineMonthId = month => {
             .catch((error) => {
                 dispatch(vaccineMonthIdFailed(error));
             })
+    }
+}
+
+
+export const sendVaccineData=(monthIdData)=>{
+    console.log(monthIdData);
+    return{
+        type:SEND_VACCINE_DATA,
+        monthIdData
+    }
+}
+
+export const sendVaccineTaken=(vaccineTaken)=>{
+    return {
+        type: SEND_VACCINE_TAKEN,
+        vaccineTaken
     }
 }

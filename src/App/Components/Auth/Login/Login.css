@@ -95,7 +95,7 @@
 
   
   
-  /* Hide the browser's default checkbox */
+  /* Hide the browser's default checkbox 
   .container input {
     position: absolute;
     opacity: 0;
@@ -103,7 +103,7 @@
     height: 0;
     width: 0;
     margin-top: 17;
-  }
+  }*/
   
    .checkboxparagraph{
      font-size: 13px;

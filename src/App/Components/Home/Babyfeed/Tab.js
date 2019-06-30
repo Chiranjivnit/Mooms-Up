@@ -3,8 +3,10 @@ import { Tabs, Tab, TabPanel, TabList } from 'react-web-tabs';
 // import 'react-web-tabs/dist/react-web-tabs.css';
 import Images from '../../../Themes/Images';
 import { ListGroup } from 'react-bootstrap';
-import { fetchVaccineMonthId } from '../../../Actions/VaccineAction';
+import { fetchVaccineMonthId, sendVaccineData } from '../../../Actions/VaccineAction';
 import { connect } from 'react-redux';
+import { NavLink, } from 'react-router-dom';
+import "../Homepage.css";
 
 
 class Tabpage extends Component {
@@ -16,54 +18,58 @@ class Tabpage extends Component {
             vaccine_required: '',
             vaccine_taken: '',
             selectedObject: "",
-            doseObject:"",
+            doseObject: "",
+            vaccineMonthIdData: ""
         }
     }
 
-    _tabChange=(tabId)=> {
+    _tabChange = (tabId) => {
         this.setState({ tabId });
         this.props.fetchVaccineMonthId(tabId.slice(0, 1));
     }
 
 
-    _onClick=(monthIdData) =>{
-        console.log("monthdata", monthIdData);
+    _onClick = (monthIdData) => {
+        console.log("monthIdData", monthIdData);
         this.setState({ selectedObject: monthIdData })
+        this.props.sendVaccineData(monthIdData)
+        // console.log(this.state.selectedObject);
     }
 
-    _onDose=(doseObject)=>{
-      this.setState({
-           doseObject:doseObject
-      })
+    _onDose = (doseObject) => {
+        this.setState({
+            doseObject: doseObject
+        })
     }
 
     render() {
-
-        // console.log(this.props.vaccineMonthIdData.vaccine_required);
+        console.log(this.props.vaccineTaken)
+        console.log("selectedobject",this.state.selectedObject);
         const displayVaccineMonthdata = this.props.vaccineMonthIdData.map((monthdata) => {
             console.log(monthdata)
-            return(
-            <ListGroup variant="flush" key={monthdata.id} onClick={this._onClick.bind(this, monthdata)}>
-                <ListGroup.Item onClick={this._onClick.bind(this, monthdata)}>
-                    <div className="row">
-                        <div className="col-sm-2">
-                            <div className="m">
-                                <img src={Images.needle} className="leftarrow" alt="needle" />
-                            </div>
-                        </div>
-
-                        <div className="col-sm-6">
-                            <div key={monthdata.id}>
-                                <p className="DTap">{monthdata.name}</p>
-                               <p onClick={this._onClick.bind(this,monthdata)}>Dose {monthdata.vaccine_taken}/{monthdata.vaccine_required}</p> 
+            return (
+                <ListGroup variant="flush" key={monthdata.id} onClick={this._onClick.bind(this, monthdata)}>
+                    <ListGroup.Item onClick={this._onClick.bind(this, monthdata)}>
+                        <div className="row">
+                            <div className="col-sm-2">
+                                <div className="m">
+                                    <img src={Images.needle} className="leftarrow" alt="needle" />
+                                </div>
                             </div>
 
+                            <div className="col-sm-6">
+                                <div key={monthdata.id}>
+                                    <p className="DTap">{monthdata.name}</p>
+                                    <p onClick={this._onClick.bind(this, monthdata)}>Dose {monthdata.vaccine_taken}/{monthdata.vaccine_required}</p>
+                                </div>
+
+                            </div>
                         </div>
-                    </div>
-                </ListGroup.Item>
-            </ListGroup>
-        )})
-       
+                    </ListGroup.Item>
+                </ListGroup>
+            )
+        })
+
         return (
             <Tabs
                 className="rwt__tabs"
@@ -94,14 +100,14 @@ class Tabpage extends Component {
 
                             <div className="col-sm-2">
                                 <div className="circle">
-                                    <p className="o">{this.state.selectedObject ? this.state.selectedObject.vaccine_taken : 0}</p>
+                                    <p className="o">{this.props.vaccineTaken}</p>
                                     taken
                                 </div>
 
                             </div>
                             <div className="col-sm-1">
                                 <div className="circle2">
-                                    <p className="five">{this.state.selectedObject ? this.state.selectedObject.vaccine_required : 0}</p> required
+                                    <p onClick={this._onClick.bind(this, this.state.selectedObject)} className="five">{this.state.selectedObject ? this.state.selectedObject.vaccine_required : 0}</p> required
                                 </div>
 
                             </div>
@@ -112,11 +118,19 @@ class Tabpage extends Component {
 
                 {/* {this.getTabViewData()} */}
 
-                <TabPanel tabId={this.state.tabId} className="tabpanel">
+                <NavLink to={{
+                    pathname: "/DetailsVaccine",
+                    vaccineMonthIdData: this.state.vaccineMonthIdData
 
-                    {displayVaccineMonthdata}
+                }} className="navlink">
+                    <TabPanel tabId={this.state.tabId} className="tabpanel">
 
-                </TabPanel>
+                        {displayVaccineMonthdata}
+
+                    </TabPanel>
+                </NavLink>
+
+
             </Tabs>
         );
     }
@@ -132,14 +146,17 @@ const mapStateToProps = (state) => {
 
         vaccineMonthIdData: state.vaccineReducer.monthIdData,
 
+        vaccineTaken: state.vaccineReducer.sendVaccineTaken
+
     }
 
 }
 
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//         fetchVaccine: data => dispatch(fetchVaccine(data)),
-//         fetchVaccineMonthId: monthIdData => dispatch(fetchVaccineMonthId(monthIdData))
-//     }
-// }
-export default connect(mapStateToProps, { fetchVaccineMonthId })(Tabpage);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchVaccineMonthId: tabId => dispatch(fetchVaccineMonthId(tabId)),
+        // vaccineMonthIdsucess: monthIdData=> dispatch(vaccineMonthIdsucess(monthIdData))
+        sendVaccineData: monthIdData => dispatch(sendVaccineData(monthIdData))
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Tabpage);
