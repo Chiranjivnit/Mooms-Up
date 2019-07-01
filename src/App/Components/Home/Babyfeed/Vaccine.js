@@ -30,7 +30,7 @@ class Vaccine extends Component {
                             <div className="imagepadding">
                                 <header className="headervaccine">
                                   <label >
-                                    <NavLink  to="/Homepage" className="navlink"><img src={Images.leftarrow} className="leftarrow" alt="leftarrow"  /> Vaccine </NavLink>    
+                                    <NavLink  to="/" className="navlink"><img src={Images.leftarrow} className="leftarrow" alt="leftarrow"  /> Vaccine </NavLink>    
                                     
                                    </label>
                                 </header>

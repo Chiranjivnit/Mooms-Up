@@ -96,12 +96,15 @@ export const fetchVaccineMonthId = (month, ) => {
 }
 
 
-export const sendVaccineData=(monthIdData)=>{
-    console.log(monthIdData);
-    return{
-        type:SEND_VACCINE_DATA,
+export const sendVaccineData=(monthIdData)=> (dispatch) => {
+    dispatch({
+        type: SEND_VACCINE_DATA,
         monthIdData
-    }
+    })
+    // return{
+    //     type:SEND_VACCINE_DATA,
+    //     monthIdData
+    // }
 }
 
 export const sendVaccineTaken=(vaccineTaken)=>{

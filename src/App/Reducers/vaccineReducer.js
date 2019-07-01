@@ -24,7 +24,6 @@ const initialState = {
 }
 
 const vaccineReducer = (state = initialState, action) => {
-    console.log("action", action);
     switch (action.type) {
         case FETCH_VACCINE_REQUEST:
             return { ...state, fetch: true }

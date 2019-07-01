@@ -30,10 +30,7 @@ class Tabpage extends Component {
 
 
     _onClick = (monthIdData) => {
-        console.log("monthIdData", monthIdData);
-        this.setState({ selectedObject: monthIdData })
         this.props.sendVaccineData(monthIdData)
-        // console.log(this.state.selectedObject);
     }
 
     _onDose = (doseObject) => {
@@ -43,8 +40,8 @@ class Tabpage extends Component {
     }
 
     render() {
-        console.log(this.props.vaccineTaken)
-        console.log("selectedobject",this.state.selectedObject);
+        const { selectedVaccineData } = this.props;
+        console.log("sendVaccineData", selectedVaccineData);
         const displayVaccineMonthdata = this.props.vaccineMonthIdData.map((monthdata) => {
             console.log(monthdata)
             return (
@@ -107,7 +104,7 @@ class Tabpage extends Component {
                             </div>
                             <div className="col-sm-1">
                                 <div className="circle2">
-                                    <p onClick={this._onClick.bind(this, this.state.selectedObject)} className="five">{this.state.selectedObject ? this.state.selectedObject.vaccine_required : 0}</p> required
+                                    <p onClick={this._onClick.bind(this, selectedVaccineData)} className="five">{selectedVaccineData ? selectedVaccineData.vaccine_required : 0}</p> required
                                 </div>
 
                             </div>
@@ -146,7 +143,9 @@ const mapStateToProps = (state) => {
 
         vaccineMonthIdData: state.vaccineReducer.monthIdData,
 
-        vaccineTaken: state.vaccineReducer.sendVaccineTaken
+        vaccineTaken: state.vaccineReducer.sendVaccineTaken,
+        selectedVaccineData: state.vaccineReducer.sendVaccineData,
+
 
     }
 
